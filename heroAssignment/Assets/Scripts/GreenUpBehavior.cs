@@ -53,6 +53,15 @@ public class GreenUpBehavior : MonoBehaviour
                 transform.Rotate(transform.forward, mHeroRotateSpeed * Time.smoothDeltaTime);
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Prefab MUST BE locaed in Resources/Prefab folder!
+            GameObject e = Instantiate(Resources.Load("Prefabs/Egg") as GameObject); 
+            e.transform.localPosition = transform.localPosition;
+            e.transform.rotation = transform.rotation;
+            Debug.Log("Spawn Eggs:" + e.transform.localPosition);
+        }
 
         transform.position = pos;
     }
